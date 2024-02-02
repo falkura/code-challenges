@@ -56,15 +56,15 @@ class Main {
             this.mousePos = { x, y };
         };
 
-        canvas.addEventListener('mousedown', e => {
+        canvas.addEventListener('pointerdown', e => {
             this._isClick = true
             handleClick(e);
         });
 
-        canvas.addEventListener('mouseup', () => this._isClick = false);
-        canvas.addEventListener('mouseout', () => this._isClick = false);
+        canvas.addEventListener('pointerup', () => this._isClick = false);
+        canvas.addEventListener('pointerout', () => this._isClick = false);
 
-        canvas.addEventListener('mousemove', e => {
+        canvas.addEventListener('pointermove', e => {
             handleClick(e);
         });
 
