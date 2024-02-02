@@ -38,12 +38,12 @@ function initPage() {
 }
 
 function ticker(_cb, context, currentTime = 0, lastTime = 0) {
-    if (context.fps === undefined) return console.error('NO FPS PROPERTY IN CONTEXT', context);
+    // if (context.fps === undefined) return console.error('NO FPS PROPERTY IN CONTEXT', context);
 
-    if (currentTime - lastTime > 1000 / context.fps) {
-        _cb.call(context);
-        lastTime = currentTime;
-    }
+    // if (currentTime - lastTime > 1000 / context.fps) {
+    _cb.call(context);
+    // lastTime = currentTime;
+    // }
     requestAnimationFrame(t => ticker(_cb, context, t, lastTime));
 }
 
