@@ -57,3 +57,7 @@ function getCanvasRelativePos(mouseX, mouseY) {
         y: (cc.settings.canvasHeight / height) * (mouseY - y)
     }
 }
+
+function clamp(val, min, max) {
+    return Math.max(min, Math.min(max, val));
+}
