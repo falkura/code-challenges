@@ -1,7 +1,7 @@
 const project = {
     name: 'Template',
     onload: init,
-    "Test button": () => { console.log('do something') },
+    "Reset": () => { window.main.reset && window.main.reset() },
 }
 
 function init() {
@@ -9,9 +9,6 @@ function init() {
 }
 
 class Main {
-    canvas = window.canvas;
-    ctx = window.ctx;
-
     constructor() {
         console.log('Hello World')
     }
