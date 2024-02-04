@@ -58,6 +58,18 @@ function getCanvasRelativePos(mouseX, mouseY) {
     }
 }
 
+function getGridCell(e, gridX, gridY, cellSize, gridSizeX, gridSizeY, canCrossBorder = false) {
+    const relativePos = getCanvasRelativePos(e.clientX, e.clientY);
+    const x = Math.floor((relativePos.x - gridX) / cellSize);
+    const y = Math.floor((relativePos.y - gridY) / cellSize);
+
+    if (!canCrossBorder) {
+        if (x < 0 || y < 0 || x > gridSizeX - 1 || y > gridSizeY - 1) return undefined;
+    }
+
+    return { x, y };
+}
+
 function clamp(val, min, max) {
     return Math.max(min, Math.min(max, val));
 }
