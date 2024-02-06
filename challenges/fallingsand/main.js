@@ -1,7 +1,10 @@
 const project = {
     name: 'Falling Sand',
     onload: init,
-    "Reset": () => { main.reset() },
+    info: "Falling sand simulator. Click and drag.",
+    buttons: {
+        "Reset": () => { main.reset() },
+    }
 }
 
 function init() {

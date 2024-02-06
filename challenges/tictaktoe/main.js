@@ -1,8 +1,11 @@
 const project = {
-    name: 'Template',
+    name: 'Tic Tak Toe',
     onload: init,
-    "Restart": () => { window.main.reset && window.main.reset() },
-    "Turn Back": () => { window.main.turnBack() },
+    info: 'Simple tic tak toe game, nothing special',
+    buttons: {
+        "Restart": () => { window.main.reset && window.main.reset() },
+        "Turn Back": () => { window.main.turnBack() },
+    }
 }
 
 function init() {

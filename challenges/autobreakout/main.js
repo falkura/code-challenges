@@ -1,7 +1,10 @@
 const project = {
     name: 'Auto Breakout',
     onload: init,
-    "Restart": () => { window.main.restart() },
+    info: 'Realization of doubled Atari\'s 1976 game \"Breakout\" that infinitly plays by itself.',
+    buttons: {
+        "Restart": () => { window.main.restart() },
+    }
 }
 
 function init() {
