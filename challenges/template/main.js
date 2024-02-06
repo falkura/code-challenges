@@ -1,7 +1,10 @@
 const project = {
     name: 'Template',
     onload: init,
-    "Reset": () => { window.main.reset && window.main.reset() },
+    info: "",
+    buttons: {
+        "Reset": () => { window.main.reset && window.main.reset() },
+    }
 }
 
 function init() {

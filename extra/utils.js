@@ -11,7 +11,8 @@ function initPage() {
 
     let projectData = {
         name: 'Unnamed',
-        options: []
+        info: undefined,
+        buttons: {}
     }
 
     try {
@@ -22,14 +23,41 @@ function initPage() {
 
     document.getElementById('title').textContent = document.title = projectData.name;
 
+    const tint = document.getElementById('tint');
+    const infoButton = document.getElementsByClassName('showinfo')[0];
+
+    const changeTintVisibility = (show = true) => {
+        tint.style.visibility = show ? 'visible' : 'hidden';
+    }
+
+    if (projectData.info) {
+        const infoTitle = document.createElement('h1');
+        const infoText = document.createElement('h2');
+        const hideText = document.createElement('h2');
+
+        infoTitle.textContent = projectData.name;
+        infoText.textContent = projectData.info;
+
+        hideText.textContent = 'Click anywhere to continue';
+
+        tint.appendChild(infoTitle);
+        tint.appendChild(infoText);
+        tint.appendChild(hideText);
+
+        tint.addEventListener('pointerdown', () => { changeTintVisibility(false) });
+        infoButton.addEventListener('pointerdown', () => { changeTintVisibility(true) });
+    } else {
+        changeTintVisibility(false);
+        infoButton.style.visibility = 'hidden';
+    }
+
     const menu = document.getElementById('menu');
 
-    for (let key in projectData) {
-        if (key === 'name' || key === 'onload') continue;
+    for (let key in projectData.buttons) {
         const button = document.createElement('button');
 
         button.textContent = key;
-        button.onclick = projectData[key];
+        button.onclick = projectData.buttons[key];
 
         menu.appendChild(document.createElement('li').appendChild(button))
     }
